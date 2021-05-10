@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Originally developed by Rafa Cardona - @rcardona
+
 export OCP_RELEASE='4.7.2'
 export OCP_VERSION='4.7'
 export OCP_RELEASE_PATH='ocp'
