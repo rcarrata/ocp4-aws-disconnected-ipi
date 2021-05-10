@@ -37,7 +37,7 @@ dig bastion.${PrivateHostedZone} +short
 ```
 
 ```
-wget https://gitlab.com/rcardona/ocp4-registry-mirroring/-/raw/master/v4.7/mirror-registry-v47.sh
+wget https://raw.githubusercontent.com/rcarrata/ocp4-aws-disconnected-ipi/main/utils/mirror-registry-v47.sh
 chmod u+x mirror-registry-v47.sh
 ```
 
@@ -66,6 +66,13 @@ vim redhat-registry-pullsecret.json
 bash -x mirror-registry-v47.sh prep_registry
 ```
 
+* Login to the local registry and redhat registry:
+
+```
+podman login registry.redhat.io
+podman login bastion.asimov.lab:5000
+```
+
 * Mirror Registry of the Base Packages for the installation:
 
 ```
@@ -73,8 +80,6 @@ bash -x mirror-registry-v47.sh mirror_registry
 ```
 
 ```
-podman login registry.redhat.io
-podman login bastion.asimov.lab:5000
 curl -u admin:admin -X GET https://bastion.asimov.lab:5000/v2/_catalog
 curl -u admin:admin -X GET https://bastion.asimov.lab:5000/v2/ocp4/openshift4/tags/list?n=1000 | jq
 ```

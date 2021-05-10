@@ -44,6 +44,16 @@ resource "aws_security_group_rule" "bastion_ingress_ssh" {
   to_port     = 22
 }
 
+resource "aws_security_group_rule" "proxy" {
+  type              = "ingress"
+  security_group_id = aws_security_group.bastion.id
+
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+  from_port   = 3128
+  to_port     = 3128
+}
+
 resource "aws_security_group_rule" "registry" {
   type              = "ingress"
   security_group_id = aws_security_group.bastion.id
