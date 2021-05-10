@@ -32,6 +32,22 @@ EOF
   default = {}
 }
 
+variable "aws_ssh_key" {
+  type        = string
+  description = "The ssh key pair for AWS instances"
+}
+
+
+variable "aws_bastion_instance_type" {
+  type        = string
+  description = "The ec2 AWS instance type for the bastion."
+}
+
+variable "aws_bastion_root_volume_size" {
+  type        = string
+  description = "The root volume size of AWS instance type for the bastion."
+}
+
 variable "aws_region" {
   type        = string
   description = "The target AWS region for the cluster."
