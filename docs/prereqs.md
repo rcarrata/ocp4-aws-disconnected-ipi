@@ -64,6 +64,8 @@ Before launch the installation, need to be created these prerequisites:
 
 ## Automation for deploy this prereqs
 
+### With AWS-CLI 
+
 If you want to install only the prerequisites listed in this doc, please review the following links:
 
 * [1. Prerequisites](../aws-cli/common/1-prereqs.md)
@@ -71,3 +73,6 @@ If you want to install only the prerequisites listed in this doc, please review 
 * [3. Bastion](../aws-cli/common/4-install-bastion.md)
 * [4. Route53](../aws-cli/common/5-route53.md)
 
+### With Terraform 
+
+* [1. Terraform](../tf/README.md)

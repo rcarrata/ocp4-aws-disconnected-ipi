@@ -2,7 +2,15 @@
 
 Terraform files for deploy the prerequisites for Disconnected / Private installation
 
-### Install prerequisites
+### Fill the variables tfvars
+
+```
+cp -pr configuration/tfvars/terraform.tfvars.example configuration/tfvars/terraform.tfvars
+```
+
+NOTE: fill the variables with the proper definitions
+
+### Execute terraform for generate prerequisites
 
 Export the AWS credentials for your account
 ```
