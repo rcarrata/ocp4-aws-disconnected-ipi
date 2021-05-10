@@ -1,0 +1,6 @@
+tf/configuration/tfvars/*.tfvars
+tf/state/*terraform*
+tf/output/*.plan
+tf/*.terraform
+tf/*.terraform.lock.hcl
+tf/.terraform*
