@@ -32,52 +32,6 @@ EOF
   default = {}
 }
 
-# variable "aws_master_root_volume_type" {
-#   type        = string
-#   description = "The type of volume for the root block device of master nodes."
-#   default     = "gp2"
-# }
-
-# variable "aws_master_root_volume_size" {
-#   type        = string
-#   description = "The size of the volume in gigabytes for the root block device of master nodes."
-#   default     = 200
-# }
-
-# variable "aws_master_root_volume_iops" {
-#   type = string
-
-#   description = <<EOF
-# The amount of provisioned IOPS for the root block device of master nodes.
-# Ignored if the volume type is not io1.
-# EOF
-#   default     = 0
-
-# }
-
-# variable "aws_worker_root_volume_type" {
-#   type        = string
-#   description = "The type of volume for the root block device of worker nodes."
-#   default     = "gp2"
-# }
-
-# variable "aws_worker_root_volume_size" {
-#   type        = string
-#   description = "The size of the volume in gigabytes for the root block device of worker nodes."
-#   default     = 200
-# }
-
-# variable "aws_worker_root_volume_iops" {
-#   type = string
-
-#   description = <<EOF
-# The amount of provisioned IOPS for the root block device of worker nodes.
-# Ignored if the volume type is not io1.
-# EOF
-#   default     = 0
-
-# }
-
 variable "aws_region" {
   type        = string
   description = "The target AWS region for the cluster."
@@ -112,25 +66,7 @@ variable "aws_publish_strategy" {
   default     = "External"
 }
 
-# variable "airgapped" {
-#   type = map(string)
-#   default = {
-#     enabled    = false
-#     repository = ""
-#   }
-# }
-
 ## Variables for OCP4 Installation
-
-# variable "machine_cidr" {
-#   type = string
-
-#   description = <<EOF
-# The IP address space from which to assign machine IPs.
-# Default "10.0.0.0/16"
-# EOF
-#   default     = "10.0.0.0/16"
-# }
 
 variable "cidr_block" {
   type = string
@@ -180,3 +116,20 @@ EOF
 
 }
 
+# variable "airgapped" {
+#   type = map(string)
+#   default = {
+#     enabled    = false
+#     repository = ""
+#   }
+# }
+
+# variable "machine_cidr" {
+#   type = string
+
+#   description = <<EOF
+# The IP address space from which to assign machine IPs.
+# Default "10.0.0.0/16"
+# EOF
+#   default     = "10.0.0.0/16"
+# }

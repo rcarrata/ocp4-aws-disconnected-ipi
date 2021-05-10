@@ -13,5 +13,3 @@ There are different approaches for each mode, but always an IPI installation is 
 * [Connected Installation](/docs/mode-connected.md)
 * [Private/Restricted Installation](/docs/mode-private.md)
 * [Disconnected/AirGapped Installation](/docs/mode-disconnected.md)
-
-# ocp4-ipi-aws
