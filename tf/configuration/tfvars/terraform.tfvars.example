@@ -1,0 +1,20 @@
+cluster_id = "xxxx"
+clustername = "xxxx"
+base_domain = "xxxx"
+cidr_block = "xxxx"
+#aws_access_key_id="NEEDS_TO_BE_EXPORTED"
+#aws_secret_access_key="NEEDS_TO_BE_EXPORTED"
+aws_ami = "xxxx"
+aws_bastion_root_volume_size = "xxxx"
+aws_bastion_instance_type = "xxxx"
+aws_ssh_key = "xxxx"
+# aws_extra_tags = {
+#   "owner" = "admin"
+#   }
+aws_azs = [
+   "xxxx-xxxx-1a",
+   "xxxx-xxxx-1b",
+   "xxxx-xxxx-1c"
+]
+aws_region = "xxxx-xxxx-1"
+aws_publish_strategy = "xxxx"
