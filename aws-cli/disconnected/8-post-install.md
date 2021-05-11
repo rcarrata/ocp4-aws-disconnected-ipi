@@ -22,6 +22,6 @@ oc patch OperatorHub cluster --type json \
 * Apply the CatalogSource and the imageContentSourcePolicy:
 
 ```
-oc apply -f manifests-redhat-operator-index-1619042788/catalogSource.yaml
-oc apply -f manifests-redhat-operator-index-1619042788/imageContentSourcePolicy.yaml
+oc apply -f manifests-redhat-operator-index-xxxx/catalogSource.yaml
+oc apply -f manifests-redhat-operator-index-xxxx/imageContentSourcePolicy.yaml
 ```

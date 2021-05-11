@@ -49,7 +49,7 @@ resource "aws_security_group_rule" "proxy" {
   security_group_id = aws_security_group.bastion.id
 
   protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = [data.aws_vpc.cluster_vpc.cidr_block]
   from_port   = 3128
   to_port     = 3128
 }

@@ -41,7 +41,7 @@ If you are working in a disconnected environment, you are unable to reach the pu
 * elasticloadbalancing.<region>.amazonaws.com
 * s3.<region>.amazonaws.com
 
-## Diagram for Prerequites in AWS
+## Diagram for Prerequisites in AWS
 
 <img align="center" width="750" src="pics/private_prerequisites.png">
 
@@ -56,7 +56,7 @@ Before launch the installation, need to be created these prerequisites:
 * 1 x Security Group (for public Subnet allow ingress 22, and all Private Subnets, Outgoing all)
 * 3 x Private Subnet (1 x AZ)
 * 1 x Private Hosted Zone (A entry of Bastion Host acting as Mirror Registry)
-* 1 x Security Group (private Subnets, deny egress to Internet, allow egress / ingress all VPC)
+* 1 x Security Group (TBD!!) (private Subnets, deny egress to Internet, allow egress / ingress all VPC)
 * 1 x Route Table (attach to Private Subnets, only routing to VPC, NO to IGW, no NAT Gw)
 * 1 x VPC Endpoint to s3
 * 1 x VPC Endpoint to ELB

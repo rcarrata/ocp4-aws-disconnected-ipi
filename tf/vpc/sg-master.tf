@@ -1,3 +1,5 @@
+# To be reviewed because installer generates it's own
+
 resource "aws_security_group" "master" {
   vpc_id = data.aws_vpc.cluster_vpc.id
 

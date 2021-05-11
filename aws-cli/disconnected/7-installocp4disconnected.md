@@ -88,6 +88,12 @@ cp -rf install-config.yaml ocp4-dir/install-config.yaml
 openshift-install --dir=ocp4-dir create cluster --log-level=debug
 ```
 
+## (Optional) Only in Passthrough mode - Only for SCP limitations
+
+```
+grep credentialsMode install-config.yaml
+credentialsMode: Passthrough
+```
 
 ## (Optional) Only in Manual Mode - Only for SCP limitations
 
