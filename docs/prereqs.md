@@ -43,7 +43,7 @@ If you are working in a disconnected environment, you are unable to reach the pu
 
 ## Diagram for Prerequisites in AWS
 
-<img align="center" width="750" src="pics/private_prerequisites.png">
+<img align="center" width="950" src="pics/private_prerequisites.png">
 
 Before launch the installation, need to be created these prerequisites:
 
