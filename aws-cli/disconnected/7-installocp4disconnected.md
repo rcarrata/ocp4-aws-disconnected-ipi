@@ -84,8 +84,15 @@ mkdir ocp4-dir
 cp -rf install-config.yaml ocp4-dir/install-config.yaml
 ```
 
+* Create the OpenShift cluster with the dir generated before:
 ```
 openshift-install --dir=ocp4-dir create cluster --log-level=debug
+```
+
+* Login into the Openshift Cluster:
+
+```
+ export KUBECONFIG=ocp4-dir/auth/kubeconfig
 ```
 
 ## (Optional) Only in Passthrough mode - Only for SCP limitations
@@ -95,7 +102,9 @@ grep credentialsMode install-config.yaml
 credentialsMode: Passthrough
 ```
 
-## (Optional) Only in Manual Mode - Only for SCP limitations
+## (Optional) Only in Manual Mode - Only for SCP limitations 
+
+TODO: test this without proxy and the SGs with PrivateSubnets
 
 ```
 openshift/99_openshift-ingress-operator_cloud-credentials-secret.yaml
