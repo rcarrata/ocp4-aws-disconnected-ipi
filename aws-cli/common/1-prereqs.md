@@ -42,15 +42,13 @@ echo ARCHITECTURE=x86_64 >> envs-ocp4
 echo AMI_RHEL8="ami-04facb3ed127a2eb6" >> envs-ocp4
 ```
 
-### 2.1 Prepare AWS Bastion - Automated
+### 2.1 Set up AWS CLI - Automated
 
 ```
 bash -x 02-prereqs.sh
 ```
 
-### 2.2 Prepare AWS Bastion - Manual
-
-2. Set up AWS cli
+### 2.2 Set up AWS CLI - Manual
 
 We set up aws cli locally on the client machine, in this case laptop, to create the infrastructure on AWS step by step
 
