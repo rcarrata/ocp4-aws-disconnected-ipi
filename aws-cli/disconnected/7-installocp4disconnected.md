@@ -1,5 +1,6 @@
 ### 6 - Install OCP4 Disconnected
 
+* Add the install-config.yaml customized:
 
 ```
 ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
@@ -72,48 +73,31 @@ imageContentSources:
 EOF
 ```
 
-```
+* Generate the openshift-install for the disconnected installation:
+
+```bash
 GODEBUG=x509ignoreCN=0 oc adm release extract -a /root/bundle-pullsecret.txt --command=openshift-install "bastion.${PrivateHostedZone}:5000/ocp4/openshift4:${OCP_RELEASE}-${ARCHITECTURE}"
 sudo cp -pr openshift-install /usr/local/bin/
 sudo mv openshift-install /tmp
 openshift-install version 
 ```
 
-```
+* Copy the install-config.yaml to a directory for the installation:
+
+```bash
 mkdir ocp4-dir
 cp -rf install-config.yaml ocp4-dir/install-config.yaml
 ```
 
 * Create the OpenShift cluster with the dir generated before:
-```
+
+```bash
 openshift-install --dir=ocp4-dir create cluster --log-level=debug
 ```
 
-* Login into the Openshift Cluster:
+* Login into the Openshift Cluster and check the operators:
 
-```
+```bash
  export KUBECONFIG=ocp4-dir/auth/kubeconfig
-```
-
-## (Optional) Only in Passthrough mode - Only for SCP limitations
-
-```
-grep credentialsMode install-config.yaml
-credentialsMode: Passthrough
-```
-
-## (Optional) Only in Manual Mode - Only for SCP limitations 
-
-TODO: test this without proxy and the SGs with PrivateSubnets
-
-```
-openshift/99_openshift-ingress-operator_cloud-credentials-secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cloud-credentials
-  namespace: openshift-ingress-operator
-data:
-  aws_access_key_id:  <base64-encoded-access-key-id>
-  aws_secret_access_key: <base64-encoded-secret-access-key>
+ oc get co
 ```
