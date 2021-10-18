@@ -2,8 +2,8 @@
 
 ## Originally developed by Rafa Cardona - @rcardona
 
-export OCP_RELEASE='4.7.5'
-export OCP_VERSION='4.7'
+export OCP_RELEASE='4.8.2'
+export OCP_VERSION='4.8'
 export OCP_RELEASE_PATH='ocp'
 export LOCAL_REPOSITORY='ocp4/openshift4'
 export PRODUCT_REPO='openshift-release-dev'

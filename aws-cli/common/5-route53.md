@@ -17,8 +17,6 @@ PrivateHostedId=$(aws route53 list-hosted-zones | jq -r --arg HOSTEDZONE "$Priva
 echo "export PrivateHostedId=$PrivateHostedId" >> ${LOGFILE}
 ```
 
-
-
 ```
 cat << EOF >> control-record.json
 {
@@ -41,7 +39,7 @@ aws route53 change-resource-record-sets --hosted-zone-id ${PrivateHostedId} --ch
 
 echo "Scp the keys"
 ```
-scp -i ocp4key.pem ocp4key.pem ec2-user@$IpPublicBastion:/tmp
-scp -i ocp4key.pem envs-ocp4 ec2-user@$IpPublicBastion:
-scp -i ocp4key.pem aws-resources ec2-user@$IpPublicBastion:
+sudo scp -i ocp4key.pem ocp4key.pem ec2-user@$IpPublicBastion:
+sudo scp -i ocp4key.pem envs-ocp4 ec2-user@$IpPublicBastion:
+sudo scp -i ocp4key.pem aws-resources ec2-user@$IpPublicBastion:
 ```

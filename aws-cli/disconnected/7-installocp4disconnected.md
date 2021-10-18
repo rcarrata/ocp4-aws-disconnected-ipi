@@ -108,6 +108,3 @@ data:
   aws_access_key_id:  <base64-encoded-access-key-id>
   aws_secret_access_key: <base64-encoded-secret-access-key>
 ```
-
-
-

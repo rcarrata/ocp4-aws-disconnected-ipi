@@ -8,9 +8,9 @@ set up aws cli, ocp related/needed tools to maintain and deploy ocp as well as a
 ```
 ssh -i ocp4key.pem $IpPublicBastion -l ec2-user
 sudo -i
-cp -pr /home/ec2-user/ocp4key.pem .
-cp -pr /home/ec2-user/envs-ocp4 .
-cp -pr /home/ec2-user/aws-resources .
+sudo cp -pr /home/ec2-user/ocp4key.pem .
+sudo cp -pr /home/ec2-user/envs-ocp4 .
+sudo cp -pr /home/ec2-user/aws-resources .
 yum install vim git wget bind-utils -y
 echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc
 bash
@@ -60,7 +60,7 @@ vim redhat-registry-pullsecret.json
  ./mirror-registry-v47.sh get_artifacts
 ```
 
-* Prepare the registry:
+* Prepare the registry (set up admin as password):
 
 ```
 bash -x mirror-registry-v47.sh prep_registry
@@ -70,8 +70,12 @@ bash -x mirror-registry-v47.sh prep_registry
 
 ```
 podman login registry.redhat.io
+
+export GODEBUG=x509ignoreCN=0
 podman login bastion.asimov.lab:5000
 ```
+
+NOTE: Default admin / "admin" as passwords in the bastion
 
 * Mirror Registry of the Base Packages for the installation:
 
@@ -100,10 +104,9 @@ bash -x mirror-registry-v47.sh create-custom-catalog-redhat-operators quay-opera
 curl -u admin:admin -X GET https://bastion.asimov.lab:5000/v2/_catalog | jq -r .
 ```
 
-
 17. Set up the Proxy (only for the installation)
 
-NOTE: verify this with other installs
+IMPORTANT: As explained in the following [bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1743483#c40) the disconnected install on aws would be that if user drop the overall internet traffic capacity (no way to access AWS APIs), user need enable proxy to allow those AWS APIs access, add those api endpoints into proxy's whitelist.
 
 * login to bastion in public network
 
@@ -121,7 +124,7 @@ firewall-cmd --add-port=3128/tcp --permanent
 firewall-cmd --add-port=3128/tcp
 ```
 
-* set up simple squid configuration 
+* set up simple squid configuration
 
 ```
 cp /etc/squid/squid.conf /etc/squid/squid.conf.orig
