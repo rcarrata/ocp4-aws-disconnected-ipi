@@ -1,12 +1,19 @@
 ## Prerequisites
 
-### Automated
+### 0 - Clone the repository
+
+```
+git clone https://github.com/rcarrata/ocp4-aws-disconnected-ipi.git
+cd ocp4-aws-disconnected-ipi/aws-cli
+```
+
+### 1.1 - Set up Environment Variables - Automated
 
 ```
 bash -x 01-setup.sh
 ```
 
-### Manual
+### 1.2 - Set up Environment Variables - Manual
 
 1. Set up the environment variables
 
@@ -35,13 +42,13 @@ echo ARCHITECTURE=x86_64 >> envs-ocp4
 echo AMI_RHEL8="ami-04facb3ed127a2eb6" >> envs-ocp4
 ```
 
-### Automated
+### 2.1 Prepare AWS Bastion - Automated
 
 ```
 bash -x 02-prereqs.sh
 ```
 
-### Manual
+### 2.2 Prepare AWS Bastion - Manual
 
 2. Set up AWS cli
 
