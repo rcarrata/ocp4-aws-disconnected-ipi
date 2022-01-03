@@ -2,7 +2,7 @@
 
 ## Diagram Private Installation
 
-<img align="center" width="750" src="pics/disconnected.png">
+<img align="center" width="950" src="pics/disconnected.png">
 
 The following items are not required or created when you install a disconnected cluster:
 
