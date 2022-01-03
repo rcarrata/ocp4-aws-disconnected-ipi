@@ -1,6 +1,6 @@
 # IPI Installation - Mode Disconnected
 
-## Diagram Private Installation
+## Diagram Disconnected Installation
 
 <img align="center" width="950" src="pics/disconnected.png">
 
