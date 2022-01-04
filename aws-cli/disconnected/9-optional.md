@@ -27,7 +27,6 @@ Samples Operator can be disabled by setting the managementState configuration pa
 
 For more information on this setting please refer to the [Samples Operator Configuration Parameters documentation](https://docs.openshift.com/container-platform/latest/openshift_images/configuring-samples-operator.html#samples-operator-configuration_configuring-samples-operator).
 
-
 ## Only in Passthrough mode - Only for SCP limitations
 
 ```sh

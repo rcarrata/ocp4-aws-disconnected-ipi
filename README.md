@@ -4,7 +4,7 @@ Repository for Automate OpenShift 4 IPI Deployments in Connected, Disconnected a
 
 There are different approaches for each mode, but always an IPI installation is used.
 
-<img align="center" width="450" src="docs/pics/logo.jgp">
+<img align="center" width="450" src="docs/pics/logo.jpg">
 
 ## 1. Prerequisites
 
