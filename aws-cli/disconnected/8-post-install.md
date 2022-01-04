@@ -1,4 +1,4 @@
-## Post Install
+# 8 - IPI Disconnected - Post Install Disconnected tasks
 
 * Disable the Proxy the Cluster
 

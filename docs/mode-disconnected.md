@@ -1,5 +1,8 @@
 # IPI Installation - Mode Disconnected
 
+This is the AirGapped mode with no public Internet connectivity from the cluster is allowed.
+Mirrored Images in Bastion are needed and used for the installation of OpenShift Cluster as well as the several operators.
+
 ## Diagram Disconnected Installation
 
 <img align="center" width="950" src="pics/disconnected.png">
@@ -10,7 +13,13 @@ The following items are not required or created when you install a disconnected 
 * Public IP addresses
 * Public DNS records
 * Public endpoints
-* External LoadBalancers 
+* Internet facing Load balancers
+
+Not a [Virtual Private Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) is available for this internal VNET <-> Azure Resource Manager connection
+
+For this reason a Azure Firewall, ONLY allowing the connections to Azure Resource Manager (but with the public DNS as management.azure.com) and denying the rest of the connections to Internet (or Quay.io)
+Mirrored Images in the Bastion are used for this scenario, due to not external connectivity is allowed.
+
 
 ## Automation for deploy the Disconnected OpenShift cluster
 

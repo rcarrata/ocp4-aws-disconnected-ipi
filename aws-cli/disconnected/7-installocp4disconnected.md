@@ -1,4 +1,4 @@
-### 6 - Install OCP4 Disconnected
+# 7 - IPI Disconnected - Install OCP4 Disconnected
 
 * Add the install-config.yaml customized:
 

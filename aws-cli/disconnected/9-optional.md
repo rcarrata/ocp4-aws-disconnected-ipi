@@ -1,10 +1,10 @@
-# Optional Configuration for Post Cluster Startup
+# 9 - Optional Configuration for Post Cluster Startup
 
 Optional Configurations for apply after the installation finished
 
 ## Disable Cloud Credential Operator
 
-```
+```sh
 oc edit cm cloud-credential-operator-config
 ...
 data:
@@ -30,7 +30,7 @@ For more information on this setting please refer to the [Samples Operator Confi
 
 ## Only in Passthrough mode - Only for SCP limitations
 
-```
+```sh
 grep credentialsMode install-config.yaml
 credentialsMode: Passthrough
 ```
@@ -39,7 +39,7 @@ credentialsMode: Passthrough
 
 TODO: test this without proxy and the SGs with PrivateSubnets
 
-```
+```sh
 openshift/99_openshift-ingress-operator_cloud-credentials-secret.yaml
 apiVersion: v1
 kind: Secret

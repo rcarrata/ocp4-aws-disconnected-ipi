@@ -1,3 +1,4 @@
+# 6 - IPI Disconnected - Configure Bastion
 
 16. Configure bastion
 
