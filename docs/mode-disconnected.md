@@ -15,11 +15,9 @@ The following items are not required or created when you install a disconnected 
 * Public endpoints
 * Internet facing Load balancers
 
-Not a [Virtual Private Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) is available for this internal VNET <-> Azure Resource Manager connection
+IMPORTANT: As explained in the following [bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1743483#c40) the disconnected install on aws would be that if user drop the overall internet traffic capacity (no way to access AWS APIs), user need enable proxy to allow those AWS APIs access, add those api endpoints into proxy's whitelist.
 
-For this reason a Azure Firewall, ONLY allowing the connections to Azure Resource Manager (but with the public DNS as management.azure.com) and denying the rest of the connections to Internet (or Quay.io)
-Mirrored Images in the Bastion are used for this scenario, due to not external connectivity is allowed.
-
+The proxy is ONLY used during the installation of the cluster, and afterwards it's disabled, isolating the cluster to internet connections.
 
 ## Automation for deploy the Disconnected OpenShift cluster
 

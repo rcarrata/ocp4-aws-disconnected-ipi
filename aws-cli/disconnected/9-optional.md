@@ -2,15 +2,6 @@
 
 Optional Configurations for apply after the installation finished
 
-## Disable Cloud Credential Operator
-
-```sh
-oc edit cm cloud-credential-operator-config
-...
-data:
-  disabled: "true"
-```
-
 ## Manually Update Wildcard Records
 
 You will need to figure out the IP of the LB that is created as a result of the Service with type: LoadBalancer that ingress creates and update the records to point to it. In a disconnected private cluster, the IP for the private zone will need to be the IP of the LB interface on the subnet so that nodes can reach it (as opposed to the external LB name/address),

@@ -8,6 +8,7 @@ ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
 export PULL_SECRET=$( cat /root/bundle-pullsecret.txt | jq -c . )
 export SSH_KEY=$(cat $HOME/.ssh/id_rsa.pub)
 export CERTIFICATE=$(cat /registry/certs/domain.crt | sed -e 's/^/     /')
+export IpProxy="bastion.${PrivateHostedZone}"
 
 cat > install-config.yaml << EOF
 apiVersion: v1
