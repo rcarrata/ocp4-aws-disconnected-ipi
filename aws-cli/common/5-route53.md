@@ -40,6 +40,6 @@ aws route53 change-resource-record-sets --hosted-zone-id ${PrivateHostedId} --ch
 echo "Scp the keys"
 ```
 sudo scp -i ocp4key.pem ocp4key.pem ec2-user@$IpPublicBastion:
-sudo scp -i ocp4key.pem envs-ocp4 ec2-user@$IpPublicBastion:
-sudo scp -i ocp4key.pem aws-resources ec2-user@$IpPublicBastion:
+sudo scp -i ocp4key.pem /var/tmp/envs-ocp4 ec2-user@$IpPublicBastion:
+sudo scp -i ocp4key.pem /var/tmp/aws-resources ec2-user@$IpPublicBastion:
 ```

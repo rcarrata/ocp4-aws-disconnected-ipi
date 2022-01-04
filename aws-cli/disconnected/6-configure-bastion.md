@@ -1,5 +1,16 @@
 # 6 - IPI Disconnected - Configure Bastion
 
+15. Copy to the bastion host:
+
+```sh
+IpPublicBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=ocp4-public-bastion" | jq -r .Reservations[].Instances[].PublicIpAddress)
+
+echo "Scp the keys"
+scp -i ocp4key.pem ocp4key.pem ec2-user@$IpPublicBastion:/tmp
+scp -i ocp4key.pem /var/tmp/envs-ocp4 ec2-user@$IpPublicBastion:
+scp -i ocp4key.pem /var/tmp/aws-resources ec2-user@$IpPublicBastion:
+```
+
 16. Configure bastion
 
 set up aws cli, ocp related/needed tools to maintain and deploy ocp as well as a very simple proxy
@@ -12,11 +23,21 @@ sudo -i
 sudo cp -pr /home/ec2-user/ocp4key.pem .
 sudo cp -pr /home/ec2-user/envs-ocp4 .
 sudo cp -pr /home/ec2-user/aws-resources .
-yum install vim git wget bind-utils -y
+yum install vim git wget bind-utils tmux unzip python36 -y
+sudo ln -s /usr/bin/python3 /usr/bin/python
 echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc
 bash
 source envs-ocp4
 source aws-resources
+```
+
+* Install AWS CLI in the bastion for debugging purposes:
+
+```sh
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+./awscli-bundle/install -i /usr/local/aws -b /usr/bin/aws
+aws --version
 ```
 
 * Add the AWS credentials
@@ -29,6 +50,8 @@ aws_access_key_id = ${AWSKEY}
 aws_secret_access_key = ${AWSSECRETKEY}
 region = $REGION
 EOF
+
+aws sts get-caller-identity
 ```
 
 * Check the DNS of Route53 generated before:
@@ -55,7 +78,7 @@ touch redhat-registry-pullsecret.json
 vim redhat-registry-pullsecret.json
 ```
 
-* Install ocp and opm tools: 
+* Install ocp and opm tools:
 
 ```bash
  ./mirror-registry-v47.sh get_artifacts

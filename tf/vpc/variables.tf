@@ -11,10 +11,10 @@ variable "clustername" {
   type = string
 }
 
-variable "publish_strategy" {
-  type        = string
-  description = "The publishing strategy for endpoints like load balancers"
-}
+# variable "publish_strategy" {
+#   type        = string
+#   description = "The publishing strategy for endpoints like load balancers"
+# }
 
 variable "region" {
   type        = string

@@ -1,9 +1,10 @@
 #!/bin/bash
 
 ## Originally developed by Rafa Cardona - @rcardona
+## Maintained by Roberto Carratala - @rcarrata
 
-export OCP_RELEASE='4.8.2'
-export OCP_VERSION='4.8'
+export OCP_RELEASE='4.9.11'
+export OCP_VERSION='4.9'
 export OCP_RELEASE_PATH='ocp'
 export LOCAL_REPOSITORY='ocp4/openshift4'
 export PRODUCT_REPO='openshift-release-dev'

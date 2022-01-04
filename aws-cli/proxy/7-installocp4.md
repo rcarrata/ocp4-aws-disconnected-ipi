@@ -1,12 +1,12 @@
+# 6 - IPI Private - Install OpenShift 4 with Proxy
 
 * configure install-config.yaml
 
-mind the publish: Internal
-mind, even if docs seem to imply there is no need to configure a https proxy in case it is the same as the http proxy, tests showed updates are not working. So configure both proxies, even if they are the same!
-
+```sh
 export IpProxy="bastion.${PrivateHostedZone}"
-
 ```
+
+```sh
 bastion# cat > install-config.yaml << EOF
 apiVersion: v1
 baseDomain: ${PrivateHostedZone}
@@ -61,6 +61,8 @@ sshKey: |
 publish: Internal
 ```
 
+NOTE: Set the publish: Internal, even if docs seem to imply there is no need to configure a https proxy in case it is the same as the http proxy, tests showed updates are not working. So configure both proxies, even if they are the same!
+
 17. test proxy server
 
 login to bastion and from there to the test server in one of the private networks and validate proxy is working
@@ -68,21 +70,16 @@ login to bastion and from there to the test server in one of the private network
 vm created earlier in priv subnet: 10.0.3.153
 proxy server: 10.0.3.153:3128
 
-From public bastion server
+* From public bastion server, extract the 
 
-```
+```sh
 bastion# IpPublicBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=rcarrata-public-bastion" | jq -r .Reservations[].Instances[].PublicIpAddress)
 
 $ ssh -i ocpkey.pem ec2-user@$IPPrivateBastion
 Last login: Mon Mar 29 21:29:46 2021 from 10.0.3.153
 ```
 
-```
-$ export http_proxy=http://10.0.3.153:3128
-[ec2-user@ip-10-0-0-66 ~]$ export https_proxy=$http_proxy
-```
-
-```
+```sh
 $ curl www.google.es -v
 * Rebuilt URL to: www.google.es/
 *   Trying 74.125.193.94...
@@ -90,7 +87,12 @@ $ curl www.google.es -v
 *   Trying 2a00:1450:400b:c01::5e...
 ```
 
+```sh
+$ export http_proxy=http://10.0.3.153:3128
+[ec2-user@ip-10-0-0-66 ~]$ export https_proxy=$http_proxy
 ```
+
+```sh
 $ curl www.google.es -vI
 * Rebuilt URL to: www.google.es/
 * Uses proxy env variable http_proxy == 'http://10.0.3.153:3128'

@@ -1,5 +1,4 @@
-## Bastion
-
+# 6 - IPI Private - Configure Bastion
 
 16. Configure bastion
 

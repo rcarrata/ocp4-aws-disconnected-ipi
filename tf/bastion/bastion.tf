@@ -1,5 +1,5 @@
 resource "aws_key_pair" "ocp4" {
-  key_name   = "ocp4-deploy"
+  key_name   = "ocp4key"
   public_key = var.ssh_key
 }
 
@@ -10,7 +10,7 @@ resource "aws_instance" "bastion" {
 
   tags = merge(
     {
-      "Name" = "${var.clustername}-bastion"
+      "Name" = "${var.clustername}-public-bastion"
     },
     var.tags,
   )

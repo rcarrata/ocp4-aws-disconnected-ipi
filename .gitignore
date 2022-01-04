@@ -5,3 +5,5 @@ tf/output/*.plan
 tf/*.terraform
 tf/*.terraform.lock.hcl
 tf/.terraform*
+crash*
+*.pem

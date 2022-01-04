@@ -13,7 +13,7 @@ Now we can start creating aws objects from the local machine
 2. Create the VPC
 
 ```
-source envs-ocp4
+source /var/tmp/envs-ocp4
 aws ec2 create-vpc --cidr-block ${VpcCidr}
 VpcId=$(aws ec2 describe-vpcs | jq -r '.Vpcs[] | select(.CidrBlock=="10.0.0.0/16")? | .VpcId')
 echo "export VpcId=$VpcId" >> ${LOGFILE}

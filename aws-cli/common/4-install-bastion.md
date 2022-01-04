@@ -44,19 +44,17 @@ EODBastion
 * Create instance in Public Subnet, with Public Security group and 
 
 ```
-aws ec2 run-instances --image-id ${AMI_RHEL8} --count 1 --instance-type  t2.medium --key-name ocp4key --security-group-ids ${PublicSecurityGroupId} --block-device-mappings file://bastion-mapping.json --subnet-id ${PublicSubnetId} --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rcarrata-public-bastion}]'
+aws ec2 run-instances --image-id ${AMI_RHEL8} --count 1 --instance-type  t2.medium --key-name ocp4key --security-group-ids ${PublicSecurityGroupId} --block-device-mappings file://bastion-mapping.json --subnet-id ${PublicSubnetId} --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ocp4-public-bastion}]'
 
-IpPublicBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=rcarrata-public-bastion" | jq -r .Reservations[].Instances[].PublicIpAddress)
+IpPublicBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=ocp4-public-bastion" | jq -r .Reservations[].Instances[].PublicIpAddress)
 echo "export IpPublicBastion=$IpPublicBastion" >> ${LOGFILE}
 ```
 
 15. Launch private bastion interface
 
 ```
-aws ec2 run-instances --image-id ${AMI_RHEL8} --count 1 --instance-type  t2.medium --key-name ocp4key --security-group-ids ${PrivateSecurityGroup} --block-device-mappings file://bastion-mapping.json --subnet-id ${PrivateSubnet0Id} --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=rcarrata-private-bastion}]'
+aws ec2 run-instances --image-id ${AMI_RHEL8} --count 1 --instance-type  t2.medium --key-name ocp4key --security-group-ids ${PrivateSecurityGroup} --block-device-mappings file://bastion-mapping.json --subnet-id ${PrivateSubnet0Id} --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ocp4-private-bastion}]'
 
-IPPrivateBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=rcarrata-private-bastion" | jq -r .Reservations[].Instances[].PrivateIpAddress)
+IPPrivateBastion=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=ocp4-private-bastion" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 echo "export IPPrivateBastion=$IPPrivateBastion" >> ${LOGFILE}
 ```
-
-

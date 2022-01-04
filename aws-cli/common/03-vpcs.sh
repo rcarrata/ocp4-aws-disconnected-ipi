@@ -1,4 +1,4 @@
-source envs-ocp4
+source /var/tmp/envs-ocp4
 
 echo "Create the VPC"
 aws ec2 create-vpc --cidr-block ${VpcCidr}
