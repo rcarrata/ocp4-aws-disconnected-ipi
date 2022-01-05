@@ -5,14 +5,12 @@ cidr_block  = "10.0.0.0/16"
 #aws_secret_access_key="NEEDS_TO_BE_EXPORTED"
 
 # AMI for Bastion Host (RHEL8 in eu-west-1 in this case)
-# ami-04facb3ed127a2eb6 => eu-west-1
-# ami-06ec8443c2a35b0ba => eu-central-1
 aws_ami                   = "ami-06ec8443c2a35b0ba"
 aws_bastion_instance_type = "t2.medium"
-aws_ssh_key               = ""
-# aws_extra_tags = {
-#   "owner" = "admin"
-#   }
+aws_ssh_key               = "ssh-rsa AAA"
+aws_extra_tags = {
+  "owner" = "rcarrata"
+}
 aws_azs = [
   "eu-central-1a",
   "eu-central-1b",
