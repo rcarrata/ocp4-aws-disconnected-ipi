@@ -21,3 +21,4 @@ There are different approaches for each mode, but always an IPI installation is 
 * Tested from Fedora34 with Ansible 2.9.18 and python 3.6
 * OpenShift 4.6.x and OpenShift 4.9.x
 * Latest Test - 4.9.11
+
