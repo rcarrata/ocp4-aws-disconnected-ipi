@@ -7,3 +7,4 @@ tf/*.terraform.lock.hcl
 tf/.terraform*
 crash*
 *.pem
+.vscode
