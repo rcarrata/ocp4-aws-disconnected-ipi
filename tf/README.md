@@ -2,7 +2,7 @@
 
 Terraform files for deploy the prerequisites for Disconnected / Private installation
 
-<img align="center" width="950" src="../pics/disconnected.png">
+<img align="center" width="950" src="../docs/pics/disconnected.png">
 
 ### Fill the variables tfvars
 
